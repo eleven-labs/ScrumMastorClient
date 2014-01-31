@@ -1,8 +1,8 @@
-re.config({
+require.config({
   paths: {
-    jquery: 'libs/jquery/jquery-min',
-    underscore: 'libs/underscore/underscore-min',
-    backbone: 'libs/backbone/backbone-min',
+    jquery: 'libs/jquery/jquery.min',
+    underscore: 'libs/underscore/underscore.min',
+    backbone: 'libs/backbone/backbone.min',
     templates: '../templates'
   }
 
