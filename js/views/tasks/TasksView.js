@@ -10,10 +10,10 @@ define([
   var TasksView = Backbone.View.extend({
     el: $("#page"),
     render: function(){
-      
+this.$el.html(TasksTemplate);       
       var task0 = new TaskModel({title:'Cross Domain'}); 
-      var task1 = new TaskModel({title:'Infinite Scroll'); 
-      var task2 = new TaskModel({title:'Modular Backbone'); 
+      var task1 = new TaskModel({title:'Infinite Scroll'}); 
+      var task2 = new TaskModel({title:'Modular Backbone'}); 
       var task3 = new TaskModel({title:'Node MongoDB Mongoose Restify'});
       var task4 = new TaskModel({title:'Todo App'});
 
