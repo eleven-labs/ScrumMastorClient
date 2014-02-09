@@ -4,7 +4,8 @@ define([
   'underscore',
   'backbone',
   'views/tasks/TasksView',
-], function($, _, Backbone, TasksView) {
+  'views/tasks/TasksFormView',
+], function($, _, Backbone, TasksView, TasksFormView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -20,6 +21,11 @@ define([
     app_router.on('route:defaultAction', function (actions) {
       var tasksView = new TasksView();
       tasksView.render();
+    }); 
+
+    app_router.on('route:addTask', function (actions) {
+      var tasksFormView = new TasksFormView();
+      tasksFormView.render();
     }); 
        // We have no matching route, lets display the home page 
     // Unlike the above, we don't call render on this view as it will handle
