@@ -23,7 +23,8 @@ define([
                       task3,
                       task4];
 
-      var tasksCollection = new TasksCollection(tasks); 
+      var tasksCollection = new TasksCollection();
+      tasksCollection.fetch(); 
 
       var data = {
         tasks: tasksCollection.models,

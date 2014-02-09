@@ -23,6 +23,7 @@ define([
           title : this.$('.title').val(),
           description : this.$('.description').val()
         }, { error : _.bind(this.error, this) });
+          tasksCollection.get(this.$('.title').val()).save();
           this.$('input[type="text"]').val(''); //on vide le form
         },
         
