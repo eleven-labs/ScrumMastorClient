@@ -35,7 +35,7 @@ define([
       this.$el.html(TasksFormTemplate); 
       
       
-      $("#tasks-form").html( compiledTemplate );
+      $("#tasks-form").html();
     }
   });
 
