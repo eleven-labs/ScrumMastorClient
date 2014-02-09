@@ -29,7 +29,7 @@ define([
         error : function(model, error) {
             console.log(model, error);
             return this;
-        }
+        },
 
     render: function(){
       this.$el.html(TasksTemplate); 
