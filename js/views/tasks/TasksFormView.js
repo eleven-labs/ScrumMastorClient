@@ -9,9 +9,8 @@ define([
 
   var TasksFormView = Backbone.View.extend({
     el: $("#page"),
-    render: function(){
-      this.$el.html(TasksTemplate); 
-      events : {
+
+    events : {
         'submit form' : 'addPost'
       },
       
@@ -31,6 +30,10 @@ define([
             console.log(model, error);
             return this;
         }
+
+    render: function(){
+      this.$el.html(TasksTemplate); 
+      
       
       $("#tasks-form").html( compiledTemplate );
     }

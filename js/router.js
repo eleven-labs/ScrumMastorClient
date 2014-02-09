@@ -11,7 +11,6 @@ define([
     routes: {
       'addTask': 'addTask',
       '*actions': 'defaultAction'
-
     }
   });
   
