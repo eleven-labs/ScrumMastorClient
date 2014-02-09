@@ -16,9 +16,10 @@ define([
       
       addPost : function(e) {
         e.preventDefault();
+        
+        var tasksCollection = new TasksCollection();
 
-        TasksCollection.add({
-          id : this.$('.id').val(),
+        tasksCollection.add({
           title : this.$('.title').val(),
           description : this.$('.description').val()
         }, { error : _.bind(this.error, this) });
