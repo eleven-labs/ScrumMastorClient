@@ -9,7 +9,9 @@ define([
   
   var AppRouter = Backbone.Router.extend({
     routes: {
+      'addTask': 'addTask',
       '*actions': 'defaultAction'
+
     }
   });
   
