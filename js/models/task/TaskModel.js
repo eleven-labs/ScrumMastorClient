@@ -10,7 +10,7 @@ define([
     },
 
     initialize : function Doc() {
-        console.log('Post Constructor');
+        console.log('Task Constructor');
             
         this.bind("invalid", function(model, error){
             console.log( error );

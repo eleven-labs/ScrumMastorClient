@@ -8,7 +8,7 @@ define([
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksTemplate){
 
   var TasksView = Backbone.View.extend({
-    el: $("#tasks-list"),
+    el: $("#page"),
     render: function(){
       
       var task0 = new TaskModel({title:'Cross Domain'}); 
@@ -26,7 +26,7 @@ define([
       var tasksCollection = new TasksCollection(tasks); 
 
       var data = {
-        tasks: tasksCollection,
+        tasks: tasksCollection.models,
         _: _ 
       };
 
