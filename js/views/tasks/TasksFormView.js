@@ -14,30 +14,28 @@ define([
         'submit form' : 'addPost'
       },
       
-      addPost : function(e) {
-        e.preventDefault();
+    addPost : function(e) {
+      e.preventDefault();
         
-        var tasksCollection = new TasksCollection();
-        tasksCollection.fetch();
-        console.log(tasksCollection);
+      var tasksCollection = new TasksCollection();
+      tasksCollection.fetch();
+      console.log(tasksCollection);
         
+      var taskModel = new TaskModel();
+      taskModel.setTitle(this.$('.title').val());
+      taskModel.setDescription(this.$('.description').val());
 
-        var taskModel = new TaskModel();
-        taskModel.setTitle(this.$('.title').val());
-        taskModel.setDescription(this.$('.description').val());
-
-	      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
+      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
         
-        this.$('input[type="text"]').val(''); //on vide le form
-        taskModel.save();
-        
-        },
+      this.$('input[type="text"]').val(''); //on vide le form
+      taskModel.save();        
+    },
 
         
-        error : function(model, error) {
-            console.log(model, error);
-            return this;
-        },
+    error : function(model, error) {
+      console.log(model, error);
+      return this;
+    },
 
     render: function(){
       this.$el.html(TasksFormTemplate); 
