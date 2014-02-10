@@ -20,7 +20,8 @@ define([
         var tasksCollection = new TasksCollection();
         tasksCollection.fetch();
         console.log(tasksCollection);
-        tasksCollection.add({
+        
+	tasksCollection.add({
           title : this.$('.title').val(),
           description : this.$('.description').val()
         }, { error : _.bind(this.error, this) });
