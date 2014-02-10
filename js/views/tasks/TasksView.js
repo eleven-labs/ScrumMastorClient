@@ -11,20 +11,10 @@ define([
     el: $("#page"),
     render: function(){
       this.$el.html(TasksTemplate); 
-      var task0 = new TaskModel({title:'Cross Domain'}); 
-      var task1 = new TaskModel({title:'Infinite Scroll'}); 
-      var task2 = new TaskModel({title:'Modular Backbone'}); 
-      var task3 = new TaskModel({title:'Node MongoDB Mongoose Restify'});
-      var task4 = new TaskModel({title:'Todo App'});
 
-      var tasks = [task0, 
-                      task1,
-                      task2,
-                      task3,
-                      task4];
+      var tasksCollection = new TasksCollection();
+      tasksCollection->fetch(); 
 
-      var tasksCollection = new TasksCollection(tasks); 
-      
       var data = {
         tasks: tasksCollection.models,
         _: _ 
