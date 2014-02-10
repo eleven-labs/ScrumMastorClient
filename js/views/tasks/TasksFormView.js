@@ -21,12 +21,16 @@ define([
         tasksCollection.fetch();
         console.log(tasksCollection);
         
-	      tasksCollection.add({
-          title : this.$('.title').val(),
-          description : this.$('.description').val()
-        }, { error : _.bind(this.error, this) });
+
+        var taskModel = new TaskModel();
+        taskModel.setTitle(this.$('.title').val());
+        taskModel.setDescription(this.$('.description').val());
+
+	      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
           this.$('input[type="text"]').val(''); //on vide le form
         },
+
+        taskModel.save();
         
         error : function(model, error) {
             console.log(model, error);
