@@ -17,7 +17,6 @@ define([
   var initialize = function(){
 
     var app_router = new AppRouter;
-var currentView;    
 
     app_router.on('route:defaultAction', function (actions) {
      if (this.currentView){
@@ -36,9 +35,7 @@ var currentView;
 
       var tasksFormView = new TasksFormView();
       this.currentView = tasksFormView;
-      tasksFormView.render();
-
-
+      this.currentView.render();
 	}); 
        // We have no matching route, lets display the home page 
     // Unlike the above, we don't call render on this view as it will handle

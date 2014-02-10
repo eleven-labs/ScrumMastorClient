@@ -25,8 +25,9 @@ define([
       
     },
 
-	close: function(){
-}
+	 close: function(){
+    // nothing
+   }
   });
 
   return TasksView;

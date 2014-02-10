@@ -44,9 +44,9 @@ define([
       $("#tasks-form").html();
     },
 
-close: function(){
-this.undelegateEvents();
-}
+    close: function(){
+      this.undelegateEvents();
+    }
   });
 
   return TasksFormView;
