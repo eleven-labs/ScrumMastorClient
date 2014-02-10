@@ -26,9 +26,8 @@ define([
         taskModel.setTitle(this.$('.title').val());
         taskModel.setDescription(this.$('.description').val());
 
-	      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
-          this.$('input[type="text"]').val(''); //on vide le form
-        },
+	      tasksCollection.add(taskModel);
+        this.$('input[type="text"]').val(''); //on vide le form
 
         taskModel.save();
         
