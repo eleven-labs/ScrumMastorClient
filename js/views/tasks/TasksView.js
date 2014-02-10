@@ -24,7 +24,6 @@ define([
                       task4];
 
       var tasksCollection = new TasksCollection(tasks); 
-      
       var data = {
         tasks: tasksCollection.models,
         _: _ 
