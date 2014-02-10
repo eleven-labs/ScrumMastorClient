@@ -12,15 +12,13 @@ define([
     render: function(){
       this.$el.html(TasksTemplate); 
 
-      var tasksCollection = new TasksCollection();
-      tasksCollection->fetch(); 
-
+      var tasksCollection = new TasksCollection(); 
+      tasksCollection.fetch();
+      
       var data = {
         tasks: tasksCollection.models,
         _: _ 
       };
-
-
 
       var compiledTemplate = _.template(TasksTemplate, data);
       $("#tasks-list").html( compiledTemplate );
