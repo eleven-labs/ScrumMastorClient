@@ -2,11 +2,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'localstore',
   'models/task/TaskModel'
-], function($, _, Backbone, TaskModel){
+], function($, _, Backbone, localstore, TaskModel){
     var TasksCollection = Backbone.Collection.extend({
         model: TaskModel,
     
+        localStorage : new Store("tasks"),
+
         initialize : function() {
             console.log('Tasks collection Constructor');
         }

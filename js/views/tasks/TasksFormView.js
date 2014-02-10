@@ -18,7 +18,8 @@ define([
         e.preventDefault();
         
         var tasksCollection = new TasksCollection();
-
+        tasksCollection.fetch();
+        console.log(tasksCollection);
         tasksCollection.add({
           title : this.$('.title').val(),
           description : this.$('.description').val()
