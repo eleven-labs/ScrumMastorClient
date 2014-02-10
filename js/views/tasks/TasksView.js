@@ -23,7 +23,10 @@ define([
       var compiledTemplate = _.template(TasksTemplate, data);
       $("#tasks-list").html( compiledTemplate );
       
-    }
+    },
+
+	close: function(){
+}
   });
 
   return TasksView;
