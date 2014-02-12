@@ -1,0 +1,14 @@
+{
+    "name": "ger-twig",
+    "version": "0.0.0",
+    "description": "",
+    " dependencies": {
+        "mocha": "1.17.1"
+    },
+    "devDependencies": {
+        "karma": "~0.8"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    }
+}
