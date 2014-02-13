@@ -4,8 +4,11 @@ define(['taskmodel', 'chai'], function(taskmodel, chai)  {
 
   describe('TaskModel', function() {
 
-    it('should works ! :)', function() {
-         chai.expect(true).to.equal(true);
+    it('Test setTitle', function() {
+    	var task = taskmodel();
+    	task.setTitle('Test')
+        
+        chai.expect(task.getTitle()).to.equal('Test');
     });
 
   });
