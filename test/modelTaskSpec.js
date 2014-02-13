@@ -8,10 +8,6 @@ define(['taskmodel', 'chai'], function(taskmodel, chai)  {
          chai.expect(true).to.equal(true);
     });
 
-    it('should fails ! :(', function() {
-         chai.expect(false).to.equal(true);
-    });
-
   });
 
 });

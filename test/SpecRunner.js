@@ -1,13 +1,13 @@
 require.config({
   paths: {
-    jquery: '/js/libs/jquery/jquery.min',
-    underscore: '/js/libs/underscore/underscore.min',
-    backbone: '/js/libs/backbone/backbone.min',
-    localstore: '/js/libs/backbone/backbone.localStorage',
-    chai: '/js/libs/tests/chai',
-    chaijquery: '/js/libs/tests/chai-jquery',
-    mocha: '/js/libs/tests/mocha',
-    taskmodel: '/js/models/task/TaskModel',
+    jquery: '/lib/jquery/jquery.min',
+    underscore: '/lib/underscore/underscore.min',
+    backbone: '/lib/backbone/backbone.min',
+    localstore: '/lib/backbone/backbone.localStorage',
+    chai: '/lib/tests/chai',
+    chaijquery: '/lib/tests/chai-jquery',
+    mocha: '/lib/tests/mocha',
+    taskmodel: '/src/models/tasks/index',
   },
   shim: {
     'underscore': {
