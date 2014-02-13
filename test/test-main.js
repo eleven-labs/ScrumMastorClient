@@ -24,7 +24,7 @@ requirejs.config({
         localstore: 'lib/backbone/backbone.localStorage',
         chai: 'lib/tests/chai',
         chaijquery: 'lib/tests/chai-jquery',
-        taskmodel: 'src/models/task/TaskModel',
+        taskmodel: 'src/models/tasks/index',
     },
 
     shim: {
