@@ -1,4 +1,4 @@
-require.config({
+requirejs.config({
   paths: {
     jquery: 'libs/jquery/jquery.min',
     underscore: 'libs/underscore/underscore.min',
@@ -9,7 +9,7 @@ require.config({
 
 });
 
-require([
+requirejs([
   // Load our app module and pass it to our definition function
   'app',
 
