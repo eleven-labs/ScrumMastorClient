@@ -15,16 +15,16 @@ requirejs.config({
     // tests to be the same folder as the base url we have in src/main.js, so that relative requires in the source won’t
     // need to change. So, as we want our base url to be at src/, we need to write /base/src.
     // (http://karma-runner.github.io/0.8/plus/RequireJS.html)
-    baseUrl: '/base/js',
+    baseUrl: '/base',
 
     paths: {
-        jquery: 'libs/jquery/jquery.min',
-        underscore: 'libs/underscore/underscore.min',
-        backbone: 'libs/backbone/backbone.min',
-        localstore: 'libs/backbone/backbone.localStorage',
-        chai: 'libs/tests/chai',
-        chaijquery: 'libs/tests/chai-jquery',
-        taskmodel: 'models/task/TaskModel',
+        jquery: 'lib/jquery/jquery.min',
+        underscore: 'lib/underscore/underscore.min',
+        backbone: 'lib/backbone/backbone.min',
+        localstore: 'lib/backbone/backbone.localStorage',
+        chai: 'lib/tests/chai',
+        chaijquery: 'lib/tests/chai-jquery',
+        taskmodel: 'src/models/tasks/index',
     },
 
     shim: {

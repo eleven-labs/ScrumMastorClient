@@ -2,9 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/task/TaskModel',
-  'collections/tasks/TasksCollection',
-  'text!templates/tasks/tasksFormTemplate.html'
+  'models/tasks/index',
+  'collections/tasks/index',
+  'text!templates/tasks/form.html'
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
 
   var TasksFormView = Backbone.View.extend({
