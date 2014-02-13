@@ -3,8 +3,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/tasks/TasksView',
-  'views/tasks/TasksFormView',
+  'views/tasks/index',
+  'views/tasks/form',
 ], function($, _, Backbone, TasksView, TasksFormView) {
   
   var AppRouter = Backbone.Router.extend({
