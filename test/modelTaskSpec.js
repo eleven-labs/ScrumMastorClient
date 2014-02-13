@@ -1,11 +1,15 @@
-define(['taskmodel'], function(models)  {
+define(['taskmodel', 'chai'], function(taskmodel, chai)  {
 
-  describe('Models', function() {
- 
-    describe('Sample Model', function() {
-         console.log('test');
-	});
+  describe('TaskModel', function() {
+
+    it('should works ! :)', function() {
+         chai.expect(true).to.equal(true);
     });
- 
+
+    it('should fails ! :(', function() {
+         chai.expect(false).to.equal(true);
+    });
+
   });
- 
+
+});
