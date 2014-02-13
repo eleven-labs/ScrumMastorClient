@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/task/index',
+  'models/tasks/index',
   'collections/tasks/index',
   'text!templates/tasks/form.html'
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
