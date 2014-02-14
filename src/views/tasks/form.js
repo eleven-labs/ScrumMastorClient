@@ -20,10 +20,10 @@ define([
       var tasksCollection = new TasksCollection();
       tasksCollection.fetch();
       console.log(tasksCollection);
-        
+
       var taskModel = new TaskModel();
-      taskModel.setTitle(this.$('.title').val());
-      taskModel.setDescription(this.$('.description').val());
+      taskModel.setTitle(this.$('#title').val());
+      taskModel.setDescription(this.$('#description').val());
 
       tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
         
