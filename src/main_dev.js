@@ -5,7 +5,7 @@ requirejs.config({
     backbone: '../lib/backbone/backbone.min',
     localstore: '../lib/backbone/backbone.localStorage',
     templates: '../templates',
-    config: '../config/config'
+    config: '../config/config_dev'
   }
 
 });
