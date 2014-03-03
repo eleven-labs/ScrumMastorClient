@@ -1,14 +1,25 @@
 {
-    "name": "ger-twig",
-    "version": "0.0.0",
-    "description": "",
-    " dependencies": {
-        "mocha": "1.17.1"
-    },
-    "devDependencies": {
-        "karma": "~0.8"
-    },
-    "scripts": {
-        "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
-    }
+  "name": "ger-twig",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "mocha": "1.17.1",
+    "gulp-util": "~2.2.14",
+    "gulp": "~3.5.2",
+    "json": "0.0.14",
+    "gulp-concat": "~2.1.7",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-csslint": "~0.1.3",
+    "gulp-uglify": "~0.2.1",
+    "gulp-csso": "~0.2.3",
+    "gulp-rename": "~1.0.0",
+    "gulp-jshint": "~1.4",
+    "gulp-bower": "~0.0.3"
+  },
+  "devDependencies": {
+    "karma": "~0.8"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  }
 }
