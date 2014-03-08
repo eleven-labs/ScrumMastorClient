@@ -8,28 +8,28 @@ define(['backbone'], function(Backbone) {
 
         listTasks: function() {
             requirejs(['views/tasks/index'], function(TasksView) {
-                if (this.currentView){
+                if (this.currentView) {
                     this.currentView.close();
-                  }
-              
-                  var tasksView = new TasksView();
-                  this.currentView = tasksView;
-                  this.currentView.render();
+                }
+
+                var tasksView = new TasksView();
+                this.currentView = tasksView;
+                this.currentView.render();
             });
         },
 
         addTask: function() {
             requirejs(['views/tasks/form'], function(TasksFormView) {
-                if (this.currentView){
+                if (this.currentView) {
                     this.currentView.close();
-                  }
-                  console.log('add')
-                  var tasksFormView = new TasksFormView();
-                  this.currentView = tasksFormView;
-                  this.currentView.render();
+                }
+
+                var tasksFormView = new TasksFormView();
+                this.currentView = tasksFormView;
+                this.currentView.render();
             });
         }
     });
 
     return TaskRoutes;
-}); 
+});
