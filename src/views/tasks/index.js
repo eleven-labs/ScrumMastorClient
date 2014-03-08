@@ -8,7 +8,8 @@ define([
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksTemplate){
 
   var TasksView = Backbone.View.extend({
-    el: $("#page"),
+    el: $("#content"),
+
     render: function(){
       this.$el.html(TasksTemplate); 
 
