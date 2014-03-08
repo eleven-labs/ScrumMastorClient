@@ -1,53 +1,51 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'models/tasks/index',
-  'collections/tasks/index',
-  'text!templates/tasks/form.html'
-], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/tasks/index',
+    'collections/tasks/index',
+    'text!templates/tasks/form.html'
+], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate) {
 
-  var TasksFormView = Backbone.View.extend({
-    el: $("#page"),
+    var TasksFormView = Backbone.View.extend({
+        el: $("#content"),
 
-    events : {
-        'submit form' : 'addPost'
-      },
-      
-    addPost : function(e) {
-      e.preventDefault();
-        
-      var tasksCollection = new TasksCollection();
-      tasksCollection.fetch();
-      console.log(tasksCollection);
+        events: {
+            'submit form': 'addPost'
+        },
 
-      var taskModel = new TaskModel();
-      taskModel.setTitle(this.$('#title').val());
-      taskModel.setDescription(this.$('#description').val());
+        addPost: function(e) {
+            e.preventDefault();
 
-      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
-        
-      this.$('input[type="text"]').val(''); //on vide le form
-      taskModel.save();        
-    },
+            var tasksCollection = new TasksCollection();
+            tasksCollection.fetch();
+            console.log(tasksCollection);
 
-        
-    error : function(model, error) {
-      console.log(model, error);
-      return this;
-    },
+            var taskModel = new TaskModel();
+            taskModel.setTitle(this.$('#title').val());
+            taskModel.setDescription(this.$('#description').val());
 
-    render: function(){
-      this.$el.html(TasksFormTemplate); 
-      
-      
-      $("#tasks-form").html();
-    },
+            tasksCollection.add(taskModel, {error: _.bind(this.error, this)});
 
-    close: function(){
-      this.undelegateEvents();
-    }
-  });
+            this.$('input[type="text"]').val(''); //on vide le form
+            taskModel.save();
+        },
 
-  return TasksFormView;
+        error: function(model, error) {
+            console.log(model, error);
+            return this;
+        },
+
+        render: function() {
+            this.$el.html(TasksFormTemplate);
+
+            $("#tasks-form").html();
+        },
+
+        close: function() {
+            this.undelegateEvents();
+        }
+    });
+
+    return TasksFormView;
 });

@@ -1,9 +1,11 @@
 <div id="tasks-list">
-<ul>
-  <% _.each(tasks, function(task){ %>
-   <li><%= task.get("title") %></li> 
-  <% }); %>
-</ul>
+    <ul>
+        <% _.each(tasks, function(task){ %>
+            <li>
+                <%= task.get("title") %>
+            </li>
+        <% }); %>
+    </ul>
 
-<a href="#/addTask" >Ajouter task</a>
+    <a href="#/addTask" >Ajouter task</a>
 </div>

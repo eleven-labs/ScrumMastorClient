@@ -1,34 +1,35 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'models/tasks/index',
-  'collections/tasks/index',
-  'text!templates/tasks/index.html'
-], function($, _, Backbone, TaskModel, TasksCollection, TasksTemplate){
+    'jquery',
+    'underscore',
+    'backbone',
+    'models/tasks/index',
+    'collections/tasks/index',
+    'text!templates/tasks/index.html'
+], function($, _, Backbone, TaskModel, TasksCollection, TasksTemplate) {
 
-  var TasksView = Backbone.View.extend({
-    el: $("#page"),
-    render: function(){
-      this.$el.html(TasksTemplate); 
+    var TasksView = Backbone.View.extend({
+        el: $("#content"),
 
-      var tasksCollection = new TasksCollection(); 
-      tasksCollection.fetch();
-      
-      var data = {
-        tasks: tasksCollection.models,
-        _: _ 
-      };
+        render: function() {
+            this.$el.html(TasksTemplate);
 
-      var compiledTemplate = _.template(TasksTemplate, data);
-      $("#tasks-list").html( compiledTemplate );
-      
-    },
+            var tasksCollection = new TasksCollection();
+            tasksCollection.fetch();
 
-	 close: function(){
-    // nothing
-   }
-  });
+            var data = {
+                tasks: tasksCollection.models,
+                _: _
+            };
 
-  return TasksView;
+            var compiledTemplate = _.template(TasksTemplate, data);
+            $("#tasks-list").html(compiledTemplate);
+
+        },
+
+        close: function() {
+            // nothing
+        }
+    });
+
+    return TasksView;
 });
