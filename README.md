@@ -26,7 +26,6 @@ For lauch test
 
 ```
 npm test
-
 ```
 
 If all is ok you can launch the app with apache or nginx.
