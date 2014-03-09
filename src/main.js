@@ -7,8 +7,14 @@ requirejs.config({
     templates: '../templates',
     taskModel: 'models/tasks/index',
     taskCollection: 'collections/tasks/index'
-  }
+  },
 
+  shim: {
+      'taskCollection': {
+        deps: ['taskModel'],
+        exports: 'taskCollection'
+      }
+    },
 });
 
 requirejs([
