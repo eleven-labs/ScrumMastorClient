@@ -19,6 +19,7 @@ requirejs.config({
 
     paths: {
         text: 'src/text',
+        config: 'config/config_dev',
         jquery: 'lib/jquery/jquery.min',
         underscore: 'lib/underscore/underscore.min',
         backbone: 'lib/backbone/backbone.min',
