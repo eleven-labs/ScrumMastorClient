@@ -1,6 +1,6 @@
 define(['tasksFormView'], function(TasksFormView)  {
 
-  describe('TaskModel', function() {
+  describe('Tasks Form View', function() {
 
     beforeEach(function() {
         el = $('<div></div>');
