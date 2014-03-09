@@ -5,16 +5,9 @@ requirejs.config({
     backbone: '../lib/backbone/backbone.min',
     localstore: '../lib/backbone/backbone.localStorage',
     templates: '../templates',
-    taskModel: 'models/tasks/index',
-    taskCollection: 'collections/tasks/index'
-  },
-
-  shim: {
-      'taskCollection': {
-        deps: ['taskModel'],
-        exports: 'taskCollection'
-      }
-    },
+    taskModel: '../src/models/tasks/index',
+    taskCollection: '../src/collections/tasks/index'
+  }
 });
 
 requirejs([
