@@ -5,9 +5,10 @@ requirejs.config({
     backbone: '../lib/backbone/backbone.min',
     localstore: '../lib/backbone/backbone.localStorage',
     templates: '../templates',
+    taskModel: '../src/models/tasks/index',
+    taskCollection: '../src/collections/tasks/index',
     config: '../config/config'
   }
-
 });
 
 requirejs([

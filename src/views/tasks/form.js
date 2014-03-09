@@ -2,13 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/tasks/index',
-  'collections/tasks/index',
+  'taskModel',
+  'taskCollection',
   'text!templates/tasks/form.html'
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
 
   var TasksFormView = Backbone.View.extend({
-    el: $("#page"),
 
     events : {
         'submit form' : 'addPost'
@@ -39,9 +38,6 @@ define([
 
     render: function(){
       this.$el.html(TasksFormTemplate); 
-      
-      
-      $("#tasks-form").html();
     },
 
     close: function(){

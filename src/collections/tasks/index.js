@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'localstore',
-  'models/tasks/index',
+  'taskModel',
   'config'
 ], function($, _, Backbone, localstore, TaskModel, config){
     var TasksCollection = Backbone.Collection.extend({
