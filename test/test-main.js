@@ -18,13 +18,13 @@ requirejs.config({
     baseUrl: '/base',
 
     paths: {
+        text: 'src/text',
         jquery: 'lib/jquery/jquery.min',
         underscore: 'lib/underscore/underscore.min',
         backbone: 'lib/backbone/backbone.min',
         localstore: 'lib/backbone/backbone.localStorage',
-        chai: 'lib/tests/chai',
-        chaijquery: 'lib/tests/chai-jquery',
         taskmodel: 'src/models/tasks/index',
+        tasksFormView: '/src/views/tasks/form',
     },
 
     shim: {
@@ -38,7 +38,9 @@ requirejs.config({
         deps: ['underscore', 'jquery'],
         exports: 'Backbone'
       },
-      'chaijquery': ['jquery', 'chai']
+      'text' : {
+        exports : 'text'
+      }
     },
 
     // ask Require.js to load these files (all our tests)

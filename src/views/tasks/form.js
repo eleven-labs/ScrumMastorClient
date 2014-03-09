@@ -39,9 +39,6 @@ define([
 
     render: function(){
       this.$el.html(TasksFormTemplate); 
-      
-      
-      $("#tasks-form").html();
     },
 
     close: function(){
