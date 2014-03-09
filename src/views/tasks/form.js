@@ -7,43 +7,41 @@ define([
   'text!templates/tasks/form.html'
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
 
-  var TasksFormView = Backbone.View.extend({
+    var TasksFormView = Backbone.View.extend({
+        events: {
+            'submit form': 'addPost'
+        },
 
-    events : {
-        'submit form' : 'addPost'
-      },
-      
-    addPost : function(e) {
-      e.preventDefault();
-        
-      var tasksCollection = new TasksCollection();
-      tasksCollection.fetch();
-      console.log(tasksCollection);
+        addPost: function(e) {
+            e.preventDefault();
 
-      var taskModel = new TaskModel();
-      taskModel.setTitle(this.$('#title').val());
-      taskModel.setDescription(this.$('#description').val());
+            var tasksCollection = new TasksCollection();
+            tasksCollection.fetch();
+            console.log(tasksCollection);
 
-      tasksCollection.add(taskModel, { error : _.bind(this.error, this) });
-        
-      this.$('input[type="text"]').val(''); //on vide le form
-      taskModel.save();        
-    },
+            var taskModel = new TaskModel();
+            taskModel.setTitle(this.$('#title').val());
+            taskModel.setDescription(this.$('#description').val());
 
-        
-    error : function(model, error) {
-      console.log(model, error);
-      return this;
-    },
+            tasksCollection.add(taskModel, {error: _.bind(this.error, this)});
 
-    render: function(){
-      this.$el.html(TasksFormTemplate); 
-    },
+            this.$('input[type="text"]').val(''); //on vide le form
+            taskModel.save();
+        },
 
-    close: function(){
-      this.undelegateEvents();
-    }
-  });
+        error: function(model, error) {
+            console.log(model, error);
+            return this;
+        },
 
-  return TasksFormView;
+        render: function() {
+            this.$el.html(TasksFormTemplate);
+        },
+
+        close: function() {
+            this.undelegateEvents();
+        }
+    });
+
+    return TasksFormView;
 });
