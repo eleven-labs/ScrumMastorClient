@@ -33,7 +33,7 @@ define([
         this.currentView.close();
       }
 
-      var tasksFormView = new TasksFormView();
+      var tasksFormView = new TasksFormView({el : '#page'});
       this.currentView = tasksFormView;
       this.currentView.render();
 	}); 
