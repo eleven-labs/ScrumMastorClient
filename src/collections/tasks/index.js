@@ -3,15 +3,21 @@ define([
   'underscore',
   'backbone',
   'localstore',
-  'taskModel'
-], function($, _, Backbone, localstore, TaskModel){
+  'taskModel',
+  'config'
+], function($, _, Backbone, localstore, TaskModel, config){
     var TasksCollection = Backbone.Collection.extend({
-        model: TaskModel,
-    
-        localStorage : new Store("tasks"),
+        model: TaskModel, 
 
-        initialize : function() {
-            console.log('Tasks collection Constructor');
+        initialize: function()
+	{
+ 	   if (config.store == 'local') {
+	   	this.localStorage = new Store("tasks");
+	   } else {
+	        this.url = config.store_url;
+           }
+
+	   console.log('Tasks collection Constructor');
         }
   });
  
