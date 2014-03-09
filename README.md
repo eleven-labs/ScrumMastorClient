@@ -1,4 +1,4 @@
-Srcummastor Client project
+Srcummastor Client project  [![Build Status](https://travis-ci.org/eleven-labs/ScrumMastorClient.png?branch=master)](https://travis-ci.org/eleven-labs/ScrumMastorClient)
 -------------------------
 
 This project use many technology js, you need install all for work that.
