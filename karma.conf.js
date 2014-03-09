@@ -8,7 +8,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'test/test-main.js',
-      'lib/tests//mock-ajax.js',
+      'lib/tests/mock-ajax.js',
       'lib/jquery/jquery.min.js',
       'lib/tests/jasmine-jquery.js',
 
