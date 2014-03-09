@@ -1,4 +1,4 @@
-define(['taskmodel'], function(TaskModel)  {
+define(['taskModel'], function(TaskModel)  {
 
   describe('TaskModel', function() {
 

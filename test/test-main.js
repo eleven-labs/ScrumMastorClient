@@ -23,8 +23,9 @@ requirejs.config({
         underscore: 'lib/underscore/underscore.min',
         backbone: 'lib/backbone/backbone.min',
         localstore: 'lib/backbone/backbone.localStorage',
-        taskmodel: 'src/models/tasks/index',
-        tasksFormView: '/src/views/tasks/form',
+        taskModel: 'src/models/tasks/index',
+        tasksFormView: 'src/views/tasks/form',
+        taskCollection: 'src/collections/tasks/index'
     },
 
     shim: {

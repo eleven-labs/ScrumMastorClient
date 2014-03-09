@@ -4,7 +4,9 @@ requirejs.config({
     underscore: '../lib/underscore/underscore.min',
     backbone: '../lib/backbone/backbone.min',
     localstore: '../lib/backbone/backbone.localStorage',
-    templates: '../templates'
+    templates: '../templates',
+    taskModel: 'models/tasks/index',
+    taskCollection: 'collections/tasks/index'
   }
 
 });
