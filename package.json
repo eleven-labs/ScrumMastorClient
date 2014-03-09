@@ -1,14 +1,22 @@
 {
-    "name": "ger-twig",
-    "version": "0.0.0",
-    "description": "",
-    " dependencies": {
-        "mocha": "1.17.1"
-    },
-    "devDependencies": {
-        "karma": "~0.8"
-    },
-    "scripts": {
-        "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
-    }
+  "name": "gulp-scrumastorclient",
+  "version": "0.0.1",
+  "description": "Scrumastorclient",
+  "dependencies": {
+    "mocha": "1.17.1",
+    "gulp": "~3.4.0",
+    "gulp-util": "~2.2.14",
+    "gulp-concat": "~2.1.7",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-csslint": "~0.1.3",
+    "gulp-uglify": "~0.2.1",
+    "gulp-jshint": "~1.5.0",
+    "gulp-bower": "~0.0.3"
+  },
+  "devDependencies": {
+    "karma": "~0.8"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  }
 }
