@@ -8,7 +8,6 @@ define([
 ], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
 
   var TasksFormView = Backbone.View.extend({
-    el: $("#page"),
 
     events : {
         'submit form' : 'addPost'
