@@ -31,4 +31,5 @@ npm test
 If all is ok you can launch the app with apache or nginx.
 
 You need launch file index.html for prod environnement  (use file config/config.js)
+
 You need launch file index_dev.html for dev environnement (use file config/config_dev.js)
