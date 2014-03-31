@@ -4,8 +4,9 @@ define([
     'backbone',
     'models/tasks/index',
     'collections/tasks/index',
+    'views/tasks/task',
     'text!templates/tasks/index.html'
-], function($, _, Backbone, TaskModel, TasksCollection, TasksTemplate) {
+], function($, _, Backbone, TaskModel, TasksCollection, TaskView, TasksTemplate) {
 
     var TasksView = Backbone.View.extend({
         el: $("#content"),
@@ -16,15 +17,14 @@ define([
             var tasksCollection = new TasksCollection();
             tasksCollection.fetch();
 
-            var data = {
-                tasks: tasksCollection.models,
-                _: _
-            };
-
-            var compiledTemplate = _.template(TasksTemplate, data);
-            $("#tasks-list").html(compiledTemplate);
-
+            tasksCollection.each(this.addOne, this);
         },
+
+        addOne: function(task) {
+              var view = new TaskView({model : task})
+              this.$("#tasks-list ul").append(view.render().el);
+        },
+
 
         close: function() {
             // nothing
