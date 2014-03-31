@@ -33,3 +33,7 @@ If all is ok you can launch the app with apache or nginx.
 You need launch file index.html for prod environnement  (use file config/config.js)
 
 You need launch file index_dev.html for dev environnement (use file config/config_dev.js)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/eleven-labs/scrummastorclient/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
