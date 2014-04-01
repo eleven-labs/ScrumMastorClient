@@ -2,9 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'models/tasks/index',
-    'collections/tasks/index',
-    'views/tasks/task',
+    'taskModel',
+    'taskCollection',
+    'taskView',
     'text!templates/tasks/index.html'
 ], function($, _, Backbone, TaskModel, TasksCollection, TaskView, TasksTemplate) {
 

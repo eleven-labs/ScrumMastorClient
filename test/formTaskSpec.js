@@ -9,18 +9,17 @@ define(['tasksFormView'], function(TasksFormView)  {
     });
 
     it('Initiate view', function() {
-    	expect(tasksFormView.$('#title').attr('type')).toBe('text');
+        expect(tasksFormView.$('#title').attr('type')).toBe('text');
         expect(tasksFormView.$('#description').attr('type')).toBe('text');
     });
 
     it('Add post', function() {
-    	tasksFormView.$('#title').val('Nouveau post');
+        tasksFormView.$('#title').val('Nouveau post');
         tasksFormView.$("#addTaskForm").trigger('submit');
 
         expect(tasksFormView.$('#title').val()).toBe('');
         expect(tasksFormView.$('#description').val()).toBe('');
     });
-
   });
 
 });
