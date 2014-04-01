@@ -10,8 +10,7 @@ module.exports = function(config) {
       'test/test-main.js',
       'lib/tests/mock-ajax.js',
       'lib/jquery/jquery.min.js',
-      'lib/tests/jasmine-jquery.js',
-
+      
       // all the sources, tests
       {pattern: '**/*.js', included: false},
       {pattern: 'templates/**/*.html', included: false, served:true}
