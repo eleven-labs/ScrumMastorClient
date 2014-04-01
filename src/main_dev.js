@@ -7,6 +7,7 @@ requirejs.config({
     templates: '../templates',
     taskModel: '../src/models/tasks/index',
     taskCollection: '../src/collections/tasks/index',
+    taskView: '../src/views/tasks/task',
     config: '../config/config_dev'
   }
 

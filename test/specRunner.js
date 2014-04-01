@@ -11,6 +11,8 @@ requirejs.config({
         taskModel: '../src/models/tasks/index',
         taskCollection: '../src/collections/tasks/index',
         tasksFormView : '../src/views/tasks/form',
+        tasksView : '../src/views/tasks/index',
+        taskView: '../src/views/tasks/task',
         jasmine: '../lib/tests/jasmine',
         'jasmine-html': '../lib/tests/jasmine-html',
         boot: '../lib/tests/boot',
@@ -48,7 +50,7 @@ require(['jquery', 'boot'], function ($, jasmine) {
 
     var specs = [];
 
-    specs.push('../test/formTaskSpec', '../test/modelTaskSpec');
+    specs.push('../test/formTaskSpec', '../test/modelTaskSpec', '../test/taskSpec');
 
     $(function () {
         require(specs, function (spec) {

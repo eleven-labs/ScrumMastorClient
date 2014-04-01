@@ -26,6 +26,8 @@ requirejs.config({
         localstore: 'lib/backbone/backbone.localStorage',
         taskModel: 'src/models/tasks/index',
         tasksFormView: 'src/views/tasks/form',
+        tasksView: 'src/views/tasks/index',
+        taskView: 'src/views/tasks/task',
         taskCollection: 'src/collections/tasks/index'
     },
 
