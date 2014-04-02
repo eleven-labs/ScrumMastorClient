@@ -1,4 +1,4 @@
-Srcummastor Client project  [![Build Status](https://travis-ci.org/eleven-labs/ScrumMastorClient.png?branch=master)](https://travis-ci.org/eleven-labs/ScrumMastorClient)
+Srcummastor Client project  [![Build Status](https://travis-ci.org/eleven-labs/ScrumMastorClient.png?branch=master)](https://travis-ci.org/eleven-labs/ScrumMastorClient) [![Dependency Status](https://david-dm.org/eleven-labs/ScrumMastorClient.png)](https://david-dm.org/eleven-labs/ScrumMastorClient) [![devDependency Status](https://david-dm.org/eleven-labs/ScrumMastorClient/dev-status.png)](https://david-dm.org/eleven-labs/ScrumMastorClient#info=devDependencies)
 -------------------------
 
 This project use many technology js, you need install all for work that.
