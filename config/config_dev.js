@@ -1,7 +1,7 @@
 define([
 ], function(){
 var config = [];
-config['store'] = 'local';
-
+config['store'] = 'serveur';
+config['store_url'] = 'rest';
 return config;
 });

@@ -15,12 +15,20 @@ define([
             this.$el.html(TasksTemplate);
 
             var tasksCollection = new TasksCollection();
-            tasksCollection.fetch();
-
-            tasksCollection.each(this.addOne, this);
-        },
+            tasksCollection.fetch({ 
+         reset: true , 
+	success: function(collection, response, option){
+                   console.log(collection);
+                  collection.each(function(model, index){
+			var view = new TaskView({model : model});
+			$("#tasks-list ul").append(view.render().el);	
+		});
+                } });
+},
+	
 
         addOne: function(task) {
+               console.log(task);
               var view = new TaskView({model : task})
               this.$("#tasks-list ul").append(view.render().el);
         },

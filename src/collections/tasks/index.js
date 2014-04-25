@@ -14,7 +14,7 @@ define([
  	    if (config.store == 'local') {
 	       this.localStorage = new Store("tasks");
 	    } else {
-	       this.url = config.store_url;
+	       this.url = config.store_url + '/task';
             }
 
 	    console.log('Tasks collection Constructor');
