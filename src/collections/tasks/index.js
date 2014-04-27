@@ -10,14 +10,14 @@ define([
         model: TaskModel, 
 
         initialize: function()
-	{
- 	    if (config.store == 'local') {
-	       this.localStorage = new Store("tasks");
-	    } else {
-	       this.url = config.store_url + '/task';
+        { 
+            if (config.store == 'local') {
+               this.localStorage = new Store("tasks");
+            } else {
+               this.url = config.store_url + '/task';
             }
 
-	    console.log('Tasks collection Constructor');
+            console.log('Tasks collection Constructor');
         }
     });
 

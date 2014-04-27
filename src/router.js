@@ -18,7 +18,8 @@ define([
             'users': new UserRoutes(),
             'tasks': new TaskRoutes()
         };
-	Backbone.emulateHTTP = true;
+	    
+        Backbone.emulateHTTP = true;
         Backbone.history.start();
     };
 
