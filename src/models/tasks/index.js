@@ -6,7 +6,6 @@ define([
 
     var TaskModel = Backbone.Model.extend({
         defaults: {
-            id: '',
             title: "Nouvelle tache",
             description: "Ce que j'ai a faire",
         },
