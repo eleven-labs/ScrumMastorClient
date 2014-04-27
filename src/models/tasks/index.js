@@ -1,10 +1,12 @@
 define([
     'underscore',
-    'backbone'
-], function(_, Backbone) {
+    'backbone',
+    'config'
+], function(_, Backbone, config) {
 
     var TaskModel = Backbone.Model.extend({
         defaults: {
+            id: '',
             title: "Nouvelle tache",
             description: "Ce que j'ai a faire",
         },

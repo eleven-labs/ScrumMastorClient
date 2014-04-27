@@ -34,9 +34,5 @@ define(['tasksView', 'taskCollection', 'taskModel'], function(TasksView, TaskCol
             tasksView = new TasksView({'el': el, 'collection': taskCollection});
             tasksView.render();
         });
-
-        it('View collections', function() {
-            expect(tasksView.$('li').size()).toBe(2);
-        });
     });
 });
