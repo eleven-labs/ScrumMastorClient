@@ -1,3 +1,5 @@
 <li id="task-item">
-    <%= task.get("title") %> <a class="destroy">Delete</a>
+    <span class="edit"><%= task.get("title") %></span>
+    <input class="update_title" value="<%= task.get("title") %>" style="display:none"/>
+     <a class="destroy">Delete</a>
 </li>
