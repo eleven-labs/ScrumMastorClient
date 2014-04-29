@@ -5,8 +5,9 @@ define([
     'backbone',
     'routes/userroutes',
     'routes/taskroutes',
+    'routes/githubroutes',
     'githubView',
-], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView) {
+], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubRoutes, GitHubView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -17,7 +18,8 @@ define([
     var initialize = function() {
         this._subRouters = {
             'users': new UserRoutes(),
-            'tasks': new TaskRoutes()
+            'tasks': new TaskRoutes(),
+            'github': new GitHubRoutes()
         };
 	    
         var githubView = new GitHubView({el : '#login'});
