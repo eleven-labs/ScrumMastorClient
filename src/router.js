@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'routes/userroutes',
-    'routes/taskroutes'
-], function($, _, Backbone, UserRoutes, TaskRoutes) {
+    'routes/taskroutes',
+    'githubView',
+], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -19,6 +20,8 @@ define([
             'tasks': new TaskRoutes()
         };
 	    
+        var githubView = new GitHubView({el : '#login'});
+        githubView.render();
         Backbone.emulateHTTP = true;
         Backbone.history.start();
     };

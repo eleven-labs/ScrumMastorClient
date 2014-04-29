@@ -9,6 +9,7 @@ requirejs.config({
     taskCollection: '../src/collections/tasks/index',
     githubModel: '../src/models/github/index',
     githubCollection: '../src/collections/github/index',
+    githubView: '../src/views/github/index',
     taskView: '../src/views/tasks/task',
     config: '../config/config_dev'
   }
