@@ -27,7 +27,16 @@ define(['backbone', 'jquery'], function(Backbone, $) {
                 url: "https://github.com/login/oauth/access_token",
                 data: "client_id=bfcda35e836f13ee9d72&client_secret=4781cce7a55a180ed3ad20eeb6552562712fe0fa&code=" + code,
                 dataType: 'jsonp',
-                jsonpCallback: 'setAccessToken',
+                success: function(data, textStatus, jqXHR) {
+                    console.log(data);
+                    console.log(textStatus);
+                    consoel.log(jqXHR);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    consoel.log(jqXHR);
+                    console.log(errorThrown);
+                },
             });
         },
 
