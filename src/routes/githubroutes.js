@@ -2,25 +2,41 @@ define(['backbone', 'jquery'], function(Backbone, $) {
 
     var GitHubRoutes = Backbone.Router.extend({
         routes: {
-            'github/:code': 'sendToken',
+            'github': 'sendToken',
         },
 
-        sendToken: function(code) {
-        $.ajax({
+        getURLParameter: function(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+        },
+
+        sendToken: function() {
+            var code = this.getURLParameter('code');
+
+            $.ajax({
                 type: "post",
-		crossDomain: true,
+                crossDomain: true,
                 url: "https://github.com/login/oauth/access_token",
-                data: "client_id=bfcda35e836f13ee9d72&client_secret=4781cce7a55a180ed3ad20eeb6552562712fe0fa&code="+code,
-		dataType: 'JSONP',                
-        	success: function(responseData, textStatus, jqXHR) 
-    {
-        console.log(responseData);
-    },
-    error: function (responseData, textStatus, errorThrown) 
-    {
-        console.warn(responseData, textStatus, errorThrown);
-    }});
-	},
+                data: "client_id=bfcda35e836f13ee9d72&client_secret=4781cce7a55a180ed3ad20eeb6552562712fe0fa&code=" + code,
+                dataType: 'jsonp',
+                jsonpCallback: 'setAccessToken',
+                success: function(msg) {
+                    console.log(msg);
+                },
+            });
+        },
+
+        setAccessToken: function(msg) {
+            console.log(msg);
+        }
     });
 
     return GitHubRoutes;
