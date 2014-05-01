@@ -23,26 +23,27 @@ define(['backbone', 'jquery'], function(Backbone, $) {
 
             $.ajax({
                 type: "post",
-                crossDomain: true,
-                url: "https://github.com/login/oauth/access_token",
-                data: "client_id=bfcda35e836f13ee9d72&client_secret=4781cce7a55a180ed3ad20eeb6552562712fe0fa&code=" + code,
-                dataType: 'jsonp',
-                success: function(data, textStatus, jqXHR) {
-                    console.log(data);
-                    console.log(textStatus);
-                    consoel.log(jqXHR);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus);
-                    consoel.log(jqXHR);
-                    console.log(errorThrown);
-                },
+		url: "/rest/github",
+                data: "code=" + code,
+                success: function(data) {
+                     var res = data.split('&');
+		     if (res[0]){
+		       var access = res[0].split('=');
+		if (access[0] == 'access_token') {
+			console.log(access[1]);
+
+			$.ajax({
+				type: 'get',
+                                url: 'https://api.github.com/user?access_token='+access[1],
+ success: function(data) {
+	console.log(data);
+}
+			});
+		}
+			}
+		},
             });
         },
-
-        setAccessToken: function(json) {
-             alert(json);
-        }
     });
 
     return GitHubRoutes;
