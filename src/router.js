@@ -5,9 +5,8 @@ define([
     'backbone',
     'routes/userroutes',
     'routes/taskroutes',
-    'routes/githubroutes',
     'githubView',
-], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubRoutes, GitHubView) {
+], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
