@@ -12,8 +12,7 @@ define([
 
         initialize: function() {
            this.listenTo(this.model, 'change', this.save);
-           this.listenTo(this.model, 'save', this.render);
-        },
+	},
 
         getURLParameter: function(sParam) {
             var sPageURL = window.location.search.substring(1);
@@ -30,11 +29,11 @@ define([
 
         save: function() {
             this.collection.add(this.model);
-            this.model.save();
-        },
+            this.model.save(); 
+	    this.render();
+	},
 
         render: function() {
-            var gitHubCollection = new GitHubCollection();
             var code = this.getURLParameter('code');
 
             if (code != undefined && !this.model.getUsername()) {

@@ -29,9 +29,10 @@ define([
             success: function(collection, response, option) {
                 console.log(collection);
                 if (collection.length != 0) {
-                    gitHubModel = collection.at(1);
+                    gitHubModel = collection.get(1);
+		    console.log(gitHubModel);
                 }
-            })
+            }
         });
 
         var githubView = new GitHubView({el : '#login', model : gitHubModel, collection: gitHubCollection});
