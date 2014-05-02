@@ -6,7 +6,9 @@ define([
     'routes/userroutes',
     'routes/taskroutes',
     'githubView',
-], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView) {
+    'githubCollection',
+    'githubModel',
+], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView, GitHubCollection, GitHubModel) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -20,7 +22,19 @@ define([
             'tasks': new TaskRoutes()
         };
 
-        var githubView = new GitHubView({el : '#login'});
+        var gitHubCollection = new GitHubCollection();
+        var gitHubModel = new GitHubModel();
+        gitHubCollection.fetch({
+            reset: true , 
+            success: function(collection, response, option) {
+                console.log(collection);
+                if (collection.length != 0) {
+                    gitHubModel = collection.at(1);
+                }
+            })
+        });
+
+        var githubView = new GitHubView({el : '#login', model : gitHubModel, collection: gitHubCollection});
         githubView.render();
 
         Backbone.emulateHTTP = true;

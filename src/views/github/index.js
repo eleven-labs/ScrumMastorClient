@@ -10,6 +10,11 @@ define([
     var GitHubView = Backbone.View.extend({
         el: $("#login"),
 
+        initialize: function() {
+           this.listenTo(this.model, 'change', this.save);
+           this.listenTo(this.model, 'save', this.render);
+        },
+
         getURLParameter: function(sParam) {
             var sPageURL = window.location.search.substring(1);
             var sURLVariables = sPageURL.split('&');
@@ -23,31 +28,21 @@ define([
             }
         },
 
-        render: function() {
+        save: function() {
+            this.collection.add(this.model);
+            this.model.save();
+        },
 
+        render: function() {
             var gitHubCollection = new GitHubCollection();
-            var gitHubModel = new GitHubModel();
             var code = this.getURLParameter('code');
 
-            gitHubCollection.fetch({
-                reset: true , 
-                success: function(collection, response, option) {
-                    console.log(collection);
-                    if (collection.length != 0) {
-                        gitHubModel = collection.at(1);
-                    } else {
-                        if (code != undefined) {
-                            gitHubModel.setAccessToken(code);
-			    	
-                            collection.add(gitHubModel);
-                            gitHubModel.save();
-                        }
-                    }
-                }
-            });
-           
+            if (code != undefined && !this.model.getUsername()) {
+                this.model.setAccessToken(code);
+            }
+
             var data = {
-                github: gitHubModel,
+                github: this.model,
                 _: _
             };
 
