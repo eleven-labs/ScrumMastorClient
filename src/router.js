@@ -18,12 +18,12 @@ define([
     var initialize = function() {
         this._subRouters = {
             'users': new UserRoutes(),
-            'tasks': new TaskRoutes(),
-            'github': new GitHubRoutes()
+            'tasks': new TaskRoutes()
         };
-	    
+
         var githubView = new GitHubView({el : '#login'});
         githubView.render();
+
         Backbone.emulateHTTP = true;
         Backbone.history.start();
     };

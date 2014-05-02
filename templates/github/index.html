@@ -1,2 +1,8 @@
-<a href="https://github.com/login/oauth/authorize?client_id=bfcda35e836f13ee9d72&scope=user">Github</a>
+<% if (!github.get('username')) { %>
+  <a href="https://github.com/login/oauth/authorize?client_id=bfcda35e836f13ee9d72&scope=user">Github</a>
+<% } else { %>
+<%= github.get('username') %>
+<% } %>
+
+
 
