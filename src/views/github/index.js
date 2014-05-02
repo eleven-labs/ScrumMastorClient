@@ -4,8 +4,9 @@ define([
     'backbone',
     'githubModel',
     'githubCollection',
+    'config',
     'text!templates/github/index.html'
-], function($, _, Backbone, GitHubModel, GitHubCollection, GitHubTemplate) {
+], function($, _, Backbone, GitHubModel, GitHubCollection, Config, GitHubTemplate) {
 
     var GitHubView = Backbone.View.extend({
         el: $("#login"),
@@ -46,6 +47,7 @@ define([
 
             var data = {
                 github: this.model,
+                redirect_uri: Config['redirect_url'],
                 _: _
             };
 
