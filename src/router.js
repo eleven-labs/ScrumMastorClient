@@ -4,8 +4,11 @@ define([
     'underscore',
     'backbone',
     'routes/userroutes',
-    'routes/taskroutes'
-], function($, _, Backbone, UserRoutes, TaskRoutes) {
+    'routes/taskroutes',
+    'githubView',
+    'githubCollection',
+    'githubModel',
+], function($, _, Backbone, UserRoutes, TaskRoutes, GitHubView, GitHubCollection, GitHubModel) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -18,7 +21,23 @@ define([
             'users': new UserRoutes(),
             'tasks': new TaskRoutes()
         };
-	    
+
+        var gitHubCollection = new GitHubCollection();
+        var gitHubModel = new GitHubModel();
+        gitHubCollection.fetch({
+            reset: true , 
+            success: function(collection, response, option) {
+                console.log(collection);
+                if (collection.length != 0) {
+                    gitHubModel = collection.get(1);
+		    console.log(gitHubModel);
+                }
+            }
+        });
+
+        var githubView = new GitHubView({el : '#login', model : gitHubModel, collection: gitHubCollection});
+        githubView.render();
+
         Backbone.emulateHTTP = true;
         Backbone.history.start();
     };
