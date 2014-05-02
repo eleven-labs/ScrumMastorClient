@@ -16,7 +16,6 @@ define([
 
         initialize: function() {
            this.listenTo(this.model, 'change', this.save);
-           this.listenTo(this.model, 'destroy', this.render);
         },
 
         getURLParameter: function(sParam) {
@@ -57,7 +56,8 @@ define([
 
         clear: function() {
             this.model.destroy();
-        },
+            location.reload(true);
+	},
 
         close: function() {
             // nothing

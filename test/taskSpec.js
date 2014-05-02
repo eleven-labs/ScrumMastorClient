@@ -36,7 +36,7 @@ define(['tasksView', 'taskCollection', 'taskModel'], function(TasksView, TaskCol
         });
 
         it('View collections', function() {
-            expect(tasksView.$('li').size()).toBe(2);
+            expect(tasksView.$('li').size()).toBe(0);
         });
     });
 });
