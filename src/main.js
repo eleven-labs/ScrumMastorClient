@@ -8,6 +8,9 @@ requirejs.config({
         taskModel: '../src/models/tasks/index',
         taskCollection: '../src/collections/tasks/index',
         taskView: '../src/views/tasks/task',
+        githubModel: '../src/models/github/index',
+        githubCollection: '../src/collections/github/index',
+        githubView: '../src/views/github/index',
         config: '../config/config'
     }
 });

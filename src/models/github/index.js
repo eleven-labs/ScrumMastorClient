@@ -24,7 +24,7 @@ define([
                 type: 'get',
                 url: 'https://api.github.com/user?access_token='+this.getAccessToken(),
                 context: this,
-		success: function(data) {
+		        success: function(data) {
                     console.log(data);
                     this.set({username: data.login});
                 }
@@ -41,7 +41,7 @@ define([
                 url: "/rest/github",
                 data: "code=" + code,
                 context: this,
-		success: function(data) {
+		       success: function(data) {
                     var res = data.split('&');
                     if (res[0]) {
                         var access = res[0].split('=');
