@@ -10,9 +10,14 @@ define([
     var GitHubView = Backbone.View.extend({
         el: $("#login"),
 
+        events: {
+            "click #logout" : "clear",
+        },
+
         initialize: function() {
            this.listenTo(this.model, 'change', this.save);
-	},
+           this.listenTo(this.model, 'destroy', this.render);
+        },
 
         getURLParameter: function(sParam) {
             var sPageURL = window.location.search.substring(1);
@@ -30,8 +35,8 @@ define([
         save: function() {
             this.collection.add(this.model);
             this.model.save(); 
-	    this.render();
-	},
+            this.render();
+        },
 
         render: function() {
             var code = this.getURLParameter('code');
@@ -48,6 +53,10 @@ define([
             var compiledTemplate = _.template(GitHubTemplate, data);
 
             this.$el.html(compiledTemplate);
+        },
+
+        clear: function() {
+            this.model.destroy();
         },
 
         close: function() {
