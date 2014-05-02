@@ -7,8 +7,8 @@ define([
     var GitHubModel = Backbone.Model.extend({
         defaults: {
             id: '1',
-            username: "Username",
-            accessToken: "accessToken",
+            username: undefined,
+            accessToken: undefined,
         },
 
         initialize: function Doc() {
@@ -23,7 +23,8 @@ define([
              $.ajax({
                 type: 'get',
                 url: 'https://api.github.com/user?access_token='+this.getAccessToken(),
-                success: function(data) {
+                context: this,
+		success: function(data) {
                     console.log(data);
                     this.set({username: data.login});
                 }
@@ -39,7 +40,8 @@ define([
                 type: "post",
                 url: "/rest/github",
                 data: "code=" + code,
-                success: function(data) {
+                context: this,
+		success: function(data) {
                     var res = data.split('&');
                     if (res[0]) {
                         var access = res[0].split('=');

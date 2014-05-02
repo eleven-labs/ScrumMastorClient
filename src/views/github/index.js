@@ -24,10 +24,12 @@ define([
         },
 
         render: function() {
+
             var gitHubCollection = new GitHubCollection();
             var gitHubModel = new GitHubModel();
             var code = this.getURLParameter('code');
-            gitHubCollection.fetch(
+
+            gitHubCollection.fetch({
                 reset: true , 
                 success: function(collection, response, option) {
                     console.log(collection);
@@ -36,11 +38,12 @@ define([
                     } else {
                         if (code != undefined) {
                             gitHubModel.setAccessToken(code);
-
+			    	
                             collection.add(gitHubModel);
                             gitHubModel.save();
                         }
                     }
+                }
             });
            
             var data = {
