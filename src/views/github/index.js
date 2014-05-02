@@ -4,8 +4,9 @@ define([
     'backbone',
     'githubModel',
     'githubCollection',
+    'config',
     'text!templates/github/index.html'
-], function($, _, Backbone, GitHubModel, GitHubCollection, GitHubTemplate) {
+], function($, _, Backbone, GitHubModel, GitHubCollection, Config, GitHubTemplate) {
 
     var GitHubView = Backbone.View.extend({
         el: $("#login"),
@@ -16,7 +17,6 @@ define([
 
         initialize: function() {
            this.listenTo(this.model, 'change', this.save);
-           this.listenTo(this.model, 'destroy', this.render);
         },
 
         getURLParameter: function(sParam) {
@@ -47,6 +47,7 @@ define([
 
             var data = {
                 github: this.model,
+                redirect_uri: Config['redirect_url'],
                 _: _
             };
 
@@ -57,6 +58,7 @@ define([
 
         clear: function() {
             this.model.destroy();
+            this.render();
         },
 
         close: function() {
