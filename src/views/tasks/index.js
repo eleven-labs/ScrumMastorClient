@@ -13,21 +13,21 @@ define([
 
         events: {
           "drop #tasks-list ul": "drop",
-	  "dragover #tasks-list ul": "allowDrop",
+          "dragover #tasks-list ul": "allowDrop",
         },
 
         drop: function(ev) {
           ev.preventDefault();
           var data = ev.originalEvent.dataTransfer.getData("text/html");          
           console.log($('li[data-id='+ data+']').first());
-	  $('li[data-id='+ data+']').each(function() {
-	   ev.target.appendChild(this);
-	  }); 
-	},
+          $('li[data-id='+ data+']').each(function() {
+            ev.target.appendChild(this);
+          }); 
+        },
 
-	allowDrop: function(ev) {
-          ev.preventDefault();
-	},
+        allowDrop: function(ev) {
+                ev.preventDefault();
+        },
 
         render: function() {
             this.$el.html(TasksTemplate);

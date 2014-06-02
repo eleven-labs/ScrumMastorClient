@@ -6,7 +6,9 @@ define([
 ], function($, _, Backbone, TaskTemplate) {
 
     var TaskView = Backbone.View.extend({
-        
+        tagName: 'li',
+        id: 'task-item',
+
         events: {
             "click a.destroy" : "clear",
             "dblclick span.edit": "edit",
@@ -36,15 +38,16 @@ define([
         },
 
         render: function() {
-            this.$el.html(TaskTemplate);
-
+            this.$el.data('id', this.model.getId());
+            this.$el.attr('draggable', true);
+            
             var data = {
                 task: this.model,
                 _: _
             };
 
             var compiledTemplate = _.template(TaskTemplate, data);
-            this.$("#task-item").html(compiledTemplate);
+            this.$el.html(compiledTemplate);
             return this;
         },
 
