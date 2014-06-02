@@ -41,6 +41,10 @@ define([
                     var view = new TaskView({model : model});
                     $("#tasks-list ul").append(view.render().el);	
                   });
+
+                  $( "#tasks-list" ).sortable({
+                    placeholder: "ui-state-highlight"
+                  });
               } 
             });
         },

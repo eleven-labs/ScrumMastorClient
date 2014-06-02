@@ -14,7 +14,7 @@ define([
             "dblclick span.edit": "edit",
             "keypress .update_title": "updateOnEnter",
        	    "dragstart #task-item": "drag",
-	 },
+	   },
 
         initialize: function() {
            this.listenTo(this.model, 'destroy', this.remove);
