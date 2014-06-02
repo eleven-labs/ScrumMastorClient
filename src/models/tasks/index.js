@@ -8,6 +8,7 @@ define([
         defaults: {
             title: "Nouvelle tache",
             description: "Ce que j'ai a faire",
+            username: "Anonymous",
         },
 
         initialize: function Doc() {
@@ -38,6 +39,14 @@ define([
 
         setTitle: function(value) {
             this.set({title: value}, {validate: true});
+        },
+
+        getUsername: function() {
+            return this.get('username');
+        },
+
+        setUsername: function(value) {
+            this.set({username: value}, {validate: true});
         },
 
         getDescription: function() {
