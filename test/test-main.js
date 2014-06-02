@@ -28,7 +28,9 @@ requirejs.config({
         tasksFormView: 'src/views/tasks/form',
         tasksView: 'src/views/tasks/index',
         taskView: 'src/views/tasks/task',
-        taskCollection: 'src/collections/tasks/index'
+        taskCollection: 'src/collections/tasks/index',
+        githubModel: 'src/models/github/index',
+        githubCollection: 'src/collections/github/index'
     },
 
     shim: {

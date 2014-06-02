@@ -13,6 +13,8 @@ requirejs.config({
         tasksFormView : '../src/views/tasks/form',
         tasksView : '../src/views/tasks/index',
         taskView: '../src/views/tasks/task',
+        githubModel: '../src/models/github/index',
+        githubCollection: '../src/collections/github/index',
         jasmine: '../lib/tests/jasmine',
         'jasmine-html': '../lib/tests/jasmine-html',
         boot: '../lib/tests/boot',
