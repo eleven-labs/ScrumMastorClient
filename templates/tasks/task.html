@@ -1,5 +1,6 @@
 <li id="task-item">
     <span class="edit"><%= task.get("title") %></span>
     <input class="update_title" value="<%= task.get("title") %>" style="display:none"/>
-     <a class="destroy">Delete</a>
+    <span><%= task.get("username") %></span>
+    <a class="destroy">Delete</a>
 </li>

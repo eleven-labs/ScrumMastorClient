@@ -4,8 +4,10 @@ define([
   'backbone',
   'taskModel',
   'taskCollection',
+  'githubModel',
+  'githubCollection',
   'text!templates/tasks/form.html'
-], function($, _, Backbone, TaskModel, TasksCollection, TasksFormTemplate){
+], function($, _, Backbone, TaskModel, TasksCollection, GitHubModel, GitHubCollection, TasksFormTemplate){
 
     var TasksFormView = Backbone.View.extend({
         events: {
@@ -15,6 +17,19 @@ define([
         addPost: function(e) {
             e.preventDefault();
 
+            var gitHubCollection = new GitHubCollection();
+            var gitHubModel = new GitHubModel();
+            gitHubCollection.fetch({
+                reset: true , 
+                success: function(collection, response, option) {
+                    console.log(collection);
+                    if (collection.length != 0) {
+                        gitHubModel = collection.get(1);
+                        console.log(gitHubModel);
+                    }
+                }
+            });
+
             var tasksCollection = new TasksCollection();
             tasksCollection.fetch();
             console.log(tasksCollection);
@@ -22,6 +37,10 @@ define([
             var taskModel = new TaskModel();
             taskModel.setTitle(this.$('#title').val());
             taskModel.setDescription(this.$('#description').val());
+
+            if (gitHubModel.getUsername() != undefined) {
+                taskModel.setUsername(gitHubModel.getUsername());
+            }
 
             tasksCollection.add(taskModel, {error: _.bind(this.error, this)});
 

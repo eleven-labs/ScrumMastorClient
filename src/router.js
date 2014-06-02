@@ -30,7 +30,7 @@ define([
                 console.log(collection);
                 if (collection.length != 0) {
                     gitHubModel = collection.get(1);
-		    console.log(gitHubModel);
+                    console.log(gitHubModel);
                 }
             }
         });
