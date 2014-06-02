@@ -13,17 +13,12 @@ define([
             "click a.destroy" : "clear",
             "dblclick span.edit": "edit",
             "keypress .update_title": "updateOnEnter",
-       	    "dragstart #task-item": "drag",
 	   },
 
         initialize: function() {
            this.listenTo(this.model, 'destroy', this.remove);
            this.listenTo(this.model, 'change', this.render);
         },
-
-        drag: function(ev) {
-          ev.originalEvent.dataTransfer.setData("text/html", $(ev.target).data('id'));
-	},
 
         edit: function() {
             this.$('.update_title').show();
@@ -39,7 +34,6 @@ define([
 
         render: function() {
             this.$el.attr('data-id', this.model.getId());
-            this.$el.attr('draggable', true);
 
             var data = {
                 task: this.model,
