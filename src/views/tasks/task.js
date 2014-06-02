@@ -38,9 +38,9 @@ define([
         },
 
         render: function() {
-            this.$el.data('id', this.model.getId());
+            this.$el.attr('data-id', this.model.getId());
             this.$el.attr('draggable', true);
-            
+
             var data = {
                 task: this.model,
                 _: _
