@@ -27,12 +27,15 @@ define([
 
                   $( "#tasks-list ul" ).sortable({
                     placeholder: "ui-state-highlight",
-		    update: function(event, ui) { 
-            console.log('update: '+ui.item.index())
-              },
-        start: function(event, ui) { 
-            console.log('start: ' + ui.item.index())
-        }
+		                update: function(event, ui) {
+                      var model = collection.get(ui.item.data('id'));
+                      model.setPriority(ui.item.index());
+                      model.save();
+                      console.log('update: '+ui.item.index())
+                    },
+                    start: function(event, ui) { 
+                      console.log('start: ' + ui.item.index())
+                    }
                   });
               } 
             });

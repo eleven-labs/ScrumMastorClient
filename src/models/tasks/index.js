@@ -41,6 +41,14 @@ define([
             this.set({title: value}, {validate: true});
         },
 
+        getPriority: function() {
+            return this.get('priority');
+        },
+
+        setPriority: function(value) {
+            this.set({priority: value}, {validate: true});
+        },
+
         getUsername: function() {
             return this.get('username');
         },
