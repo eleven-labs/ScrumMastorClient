@@ -18,7 +18,8 @@ requirejs.config({
     'jqueryui': {
       exports: "$",
       deps: ['jquery']
-  }
+    }
+  },
 });
 
 requirejs([

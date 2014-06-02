@@ -1,12 +1,13 @@
 define([
     'jquery',
+    'jqueryui',
     'underscore',
     'backbone',
     'taskModel',
     'taskCollection',
     'taskView',
     'text!templates/tasks/index.html'
-], function($, _, Backbone, TaskModel, TasksCollection, TaskView, TasksTemplate) {
+], function($, jqueryui, _, Backbone, TaskModel, TasksCollection, TaskView, TasksTemplate) {
 
     var TasksView = Backbone.View.extend({
         el: $("#content"),
