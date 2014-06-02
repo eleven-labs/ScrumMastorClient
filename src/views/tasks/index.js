@@ -11,6 +11,14 @@ define([
     var TasksView = Backbone.View.extend({
         el: $("#content"),
 
+        events: {
+          "drop #tasks-list ul": "drop",
+        },
+
+        drop: function() {
+          alert('ok');
+        },
+
         render: function() {
             this.$el.html(TasksTemplate);
 
