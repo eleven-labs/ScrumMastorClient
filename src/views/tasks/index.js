@@ -22,21 +22,23 @@ define([
                   console.log(collection);
                   collection.each(function(model, index){
                     var view = new TaskView({model : model});
-                    $("#tasks-list ul").append(view.render().el);	
+                    
+                    
+                    $("#tasks-list-todo ul").append(view.render().el);	
                   });
 
-                  $( "#tasks-list ul" ).sortable({
+                  $( "#tasks-list-todo ul" ).sortable({
                     placeholder: "ui-state-highlight",
 		                update: function(event, ui) {
                       var model = collection.get(ui.item.data('id'));
                       var start_priority = model.getPriority();
                       console.log(start_priority);
-		      console.log(ui.item.index());
+		                  console.log(ui.item.index());
 
                       if (start_priority > ui.item.index()) {
                         for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
                           var model = collection.findWhere({priority: i});
-			  console.log(model.getTitle());
+			                    console.log(model.getTitle());
                           model.setPriority(model.getPriority() + 1);
                           model.save();
                         }

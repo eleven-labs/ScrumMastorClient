@@ -7,7 +7,7 @@ define([
 
     var TaskView = Backbone.View.extend({
         tagName: 'li',
-        id: 'task-item',
+        id: 'tasks-list-todo',
 
         events: {
             "click a.destroy" : "clear",
