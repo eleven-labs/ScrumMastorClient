@@ -31,7 +31,10 @@ define([
             });
 
             var tasksCollection = new TasksCollection();
-            tasksCollection.fetch();
+            tasksCollection.fetch({ 
+              reset: true , 
+success: function(collection, response, option) {
+
             console.log(tasksCollection);
 
             var taskModel = new TaskModel();
@@ -41,12 +44,16 @@ define([
             if (gitHubModel.getUsername() != undefined) {
                 taskModel.setUsername(gitHubModel.getUsername());
             }
-
-            tasksCollection.add(taskModel, {error: _.bind(this.error, this)});
+            console.log(tasksCollection.length); 
+            taskModel.setPriority(tasksCollection.length);
+            tasksCollection.add(taskModel);
 
             this.$('input[type="text"]').val(''); //on vide le form
             taskModel.save();
-        },
+        
+	}
+});
+},
 
         error: function(model, error) {
             console.log(model, error);
