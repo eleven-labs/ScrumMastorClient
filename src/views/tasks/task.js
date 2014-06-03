@@ -6,12 +6,14 @@ define([
 ], function($, _, Backbone, TaskTemplate) {
 
     var TaskView = Backbone.View.extend({
-        
+        tagName: 'li',
+        id: 'task-item',
+
         events: {
             "click a.destroy" : "clear",
             "dblclick span.edit": "edit",
             "keypress .update_title": "updateOnEnter",
-        },
+	   },
 
         initialize: function() {
            this.listenTo(this.model, 'destroy', this.remove);
@@ -31,7 +33,7 @@ define([
         },
 
         render: function() {
-            this.$el.html(TaskTemplate);
+            this.$el.attr('data-id', this.model.getId());
 
             var data = {
                 task: this.model,
@@ -39,7 +41,7 @@ define([
             };
 
             var compiledTemplate = _.template(TaskTemplate, data);
-            this.$("#task-item").html(compiledTemplate);
+            this.$el.html(compiledTemplate);
             return this;
         },
 

@@ -1,6 +1,7 @@
 requirejs.config({
     paths: {
         jquery: '../lib/jquery/jquery.min',
+        jqueryui: '../lib/jquery/jqueryui',
         underscore: '../lib/underscore/underscore.min',
         backbone: '../lib/backbone/backbone.min',
         localstore: '../lib/backbone/backbone.localStorage',
@@ -12,7 +13,13 @@ requirejs.config({
         githubCollection: '../src/collections/github/index',
         githubView: '../src/views/github/index',
         config: '../config/config'
+    },
+    shim: {
+      'jqueryui': {
+        exports: "$",
+        deps: ['jquery']
     }
+  },
 });
 
 requirejs([

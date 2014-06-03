@@ -21,6 +21,7 @@ requirejs.config({
         text: 'src/text',
         config: 'config/config_dev',
         jquery: 'lib/jquery/jquery.min',
+        jqueryui: 'lib/jquery/jqueryui',
         underscore: 'lib/underscore/underscore.min',
         backbone: 'lib/backbone/backbone.min',
         localstore: 'lib/backbone/backbone.localStorage',
@@ -39,6 +40,10 @@ requirejs.config({
       },
       'jquery': {
         exports: '$'
+      },
+      'jqueryui': {
+        exports: "$",
+        deps: ['jquery']
       },
       'backbone': {
         deps: ['underscore', 'jquery'],
