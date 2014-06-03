@@ -29,13 +29,27 @@ define([
                     placeholder: "ui-state-highlight",
 		                update: function(event, ui) {
                       var model = collection.get(ui.item.data('id'));
+                      var start_priority = model.getPriority();
+
+                      if (start_priority > ui.item.index()) {
+                        for (var i = ui.item.index(); i < start_priority; i++) {
+                          var model = collection.where({priority: i});
+                          model.setPriority(model.getPriority() + 1);
+                          model.save();
+                        }
+                      } else {
+                        for (var i = start_priority + 1; i < ui.item.index(); i++) {
+                          var model = collection.where({priority: i});
+                          model.setPriority(model.getPriority() + 1);
+                          model.save();
+                        }
+                      }
+
+                      var model = collection.get(ui.item.data('id'));
                       model.setPriority(ui.item.index());
                       model.save();
                       console.log('update: '+ui.item.index())
                     },
-                    start: function(event, ui) { 
-                      console.log('start: ' + ui.item.index())
-                    }
                   });
               } 
             });
