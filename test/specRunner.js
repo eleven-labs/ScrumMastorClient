@@ -2,6 +2,7 @@ requirejs.config({
     waitSeconds: 10,
     paths: {
         jquery: '../lib/jquery/jquery.min',
+        jqueryui: '../lib/jquery/jqueryui',
         backbone: '../lib/backbone/backbone.min',
         underscore: '../lib/underscore/underscore.min',
         text: '../src/text',
@@ -27,6 +28,10 @@ requirejs.config({
         'jquery': {
             exports: '$'
         },
+        'jqueryui': {
+          exports: "$",
+          deps: ['jquery']
+        }
         'backbone': {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
