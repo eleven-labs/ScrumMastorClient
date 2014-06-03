@@ -27,7 +27,7 @@ define([
                     $("#tasks-list-todo ul").append(view.render().el);	
                   });
 
-                  $( "#tasks-list-todo ul" ).sortable({
+                  $( "#tasks-list-todo ul, #tasks-list-current ul, #tasks-list-done ul" ).sortable({
                     placeholder: "ui-state-highlight",
                     connectWith: ".connectedSortable",
 		                update: function(event, ui) {
@@ -56,14 +56,7 @@ define([
                       model.save();
                       console.log('update: '+ui.item.index())
                     },
-                  });
-
-                  $( "#tasks-list-current ul" ).sortable({
-                    connectWith: ".connectedSortable",
-                    update: function(event, ui) {
-                      console.log(ui.item.index());
-                    }
-                  });
+                  }).disableSelection();
               } 
             });
         },
