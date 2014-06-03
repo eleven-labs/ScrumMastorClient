@@ -24,10 +24,10 @@ define([
                     var view = new TaskView({model : model});
                     
 
-                    $("#tasks-list-todo ul").append(view.render().el);	
+                    $("#tasks-list-todo").append(view.render().el);	
                   });
 
-                  $( "#tasks-list-todo ul, #tasks-list-current ul, #tasks-list-done ul" ).sortable({
+                  $( "#tasks-list-todo, #tasks-list-current, #tasks-list-done" ).sortable({
                     placeholder: "ui-state-highlight",
                     connectWith: ".connectedSortable",
 		                update: function(event, ui) {
