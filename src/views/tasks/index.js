@@ -23,7 +23,7 @@ define([
                   collection.each(function(model, index){
                     var view = new TaskView({model : model});
                     
-                    
+
                     $("#tasks-list-todo ul").append(view.render().el);	
                   });
 
@@ -55,6 +55,12 @@ define([
                       model.save();
                       console.log('update: '+ui.item.index())
                     },
+                  });
+
+                  $( "#tasks-list-current ul" ).sortable({
+                    update: function(event, ui) {
+                      console.log(ui.item.index());
+                    }
                   });
               } 
             });
