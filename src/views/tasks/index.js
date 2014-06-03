@@ -30,18 +30,21 @@ define([
 		                update: function(event, ui) {
                       var model = collection.get(ui.item.data('id'));
                       var start_priority = model.getPriority();
+                      console.log(start_priority);
+		      console.log(ui.item.index());
 
                       if (start_priority > ui.item.index()) {
-                        for (var i = ui.item.index(); i < start_priority; i++) {
-                          var model = collection.where({priority: i});
+                        for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
+                          var model = collection.findWhere({priority: i});
+			  console.log(model.getTitle());
                           model.setPriority(model.getPriority() + 1);
                           model.save();
                         }
                       } else {
-                        for (var i = start_priority + 1; i < ui.item.index(); i++) {
-                          var model = collection.where({priority: i});
-                          model.setPriority(model.getPriority() + 1);
-                          model.save();
+                        for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
+                         var model = collection.findWhere({priority: i});
+                         model.setPriority(model.getPriority() - 1);
+                         model.save();
                         }
                       }
 
