@@ -29,6 +29,7 @@ define([
 
                   $( "#tasks-list-todo ul" ).sortable({
                     placeholder: "ui-state-highlight",
+                    connectWith: ".connectedSortable",
 		                update: function(event, ui) {
                       var model = collection.get(ui.item.data('id'));
                       var start_priority = model.getPriority();
@@ -58,6 +59,7 @@ define([
                   });
 
                   $( "#tasks-list-current ul" ).sortable({
+                    connectWith: ".connectedSortable",
                     update: function(event, ui) {
                       console.log(ui.item.index());
                     }
