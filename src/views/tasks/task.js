@@ -12,7 +12,7 @@ define([
             "click a.destroy" : "clear",
             "dblclick span.edit": "edit",
             "keypress .update_title": "updateOnEnter",
-	   },
+       },
 
         initialize: function() {
            this.listenTo(this.model, 'destroy', this.remove);
@@ -46,6 +46,11 @@ define([
 
         clear: function() {
             this.model.destroy();
+            var models = this.collection.where({status: this.model.getStatus()});
+            models.each(function(model, key) {
+                console.log(model);
+                console.log(key);
+            });
         }
     });
 

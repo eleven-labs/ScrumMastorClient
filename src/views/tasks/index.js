@@ -20,9 +20,9 @@ define([
               reset: true , 
               success: function(collection, response, option) {
                   console.log(collection);
-		  collection.sort();
+                  collection.sort();
                   collection.each(function(model, index){
-                    var view = new TaskView({model : model});
+                    var view = new TaskView({model : model, collection: collection});
                     
                     if (model.getStatus() == 0) {
                       $("#tasks-list-todo").append(view.render().el);
