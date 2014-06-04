@@ -23,8 +23,17 @@ define([
                   collection.each(function(model, index){
                     var view = new TaskView({model : model});
                     
+                    if (model.getStatus() == 0) {
+                      $("#tasks-list-todo").append(view.render().el);
+                    }
 
-                    $("#tasks-list-todo").append(view.render().el);	
+                    if (model.getStatus() == 1) {
+                      $("#tasks-list-current").append(view.render().el);
+                    }
+
+                    if (model.getStatus() == 2) {
+                      $("#tasks-list-done").append(view.render().el);
+                    }
                   });
 
                   $( "#tasks-list-todo" ).sortable({
