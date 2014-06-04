@@ -46,10 +46,13 @@ define([
 
         clear: function() {
             this.model.destroy();
-            var models = this.collection.where({status: this.model.getStatus()});
-            models.each(function(model, key) {
-                console.log(model);
-                console.log(key);
+           
+          var models = this.collection.where({status: this.model.getStatus()});
+            console.log(models);
+
+            _.each(models, function(model, key) {
+                model.setPriority(key);
+		model.save();
             });
         }
     });
