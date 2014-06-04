@@ -8,6 +8,9 @@ define([
 ], function($, _, Backbone, localstore, TaskModel, config){
     var TasksCollection = Backbone.Collection.extend({
         model: TaskModel, 
+        comparator: function(model) {
+           return model.get('priority');
+        },
 
         initialize: function()
         { 

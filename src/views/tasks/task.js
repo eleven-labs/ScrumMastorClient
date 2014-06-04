@@ -7,13 +7,12 @@ define([
 
     var TaskView = Backbone.View.extend({
         tagName: 'li',
-        id: 'task-item',
-
+        
         events: {
             "click a.destroy" : "clear",
             "dblclick span.edit": "edit",
             "keypress .update_title": "updateOnEnter",
-	   },
+       },
 
         initialize: function() {
            this.listenTo(this.model, 'destroy', this.remove);
@@ -47,6 +46,14 @@ define([
 
         clear: function() {
             this.model.destroy();
+           
+          var models = this.collection.where({status: this.model.getStatus()});
+            console.log(models);
+
+            _.each(models, function(model, key) {
+                model.setPriority(key);
+                model.save();
+            });
         }
     });
 
