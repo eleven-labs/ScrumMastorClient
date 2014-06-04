@@ -31,6 +31,8 @@ define([
             });
 
             var tasksCollection = new TasksCollection();
+            var title = this.$('#title').val();
+             var description = this.$('#description').val();
             tasksCollection.fetch({ 
               reset: true , 
 success: function(collection, response, option) {
@@ -38,8 +40,8 @@ success: function(collection, response, option) {
             console.log(tasksCollection);
 
             var taskModel = new TaskModel();
-            taskModel.setTitle(this.$('#title').val());
-            taskModel.setDescription(this.$('#description').val());
+            taskModel.setTitle(title);
+            taskModel.setDescription(description);
 
             if (gitHubModel.getUsername() != undefined) {
                 taskModel.setUsername(gitHubModel.getUsername());
