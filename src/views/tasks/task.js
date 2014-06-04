@@ -52,7 +52,7 @@ define([
 
             _.each(models, function(model, key) {
                 model.setPriority(key);
-		model.save();
+                model.save();
             });
         }
     });

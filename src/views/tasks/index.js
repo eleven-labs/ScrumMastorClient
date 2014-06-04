@@ -49,15 +49,19 @@ define([
                       if (start_priority > ui.item.index()) {
                         for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
                           var model = collection.findWhere({priority: i, status: 0});
+                          if (model != undefined) {
 			                    console.log(model.getTitle());
                           model.setPriority(model.getPriority() + 1);
                           model.save();
+                          }
                         }
                       } else {
                         for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
                          var model = collection.findWhere({priority: i, status: 0});
-                         model.setPriority(model.getPriority() - 1);
-                         model.save();
+                         if (model != undefined) {
+                          model.setPriority(model.getPriority() - 1);
+                          model.save();
+                         }
                         }
                       }
 
@@ -81,15 +85,19 @@ define([
                       if (start_priority > ui.item.index()) {
                         for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
                           var model = collection.findWhere({priority: i, status: 1});
-                          console.log(model.getTitle());
-                          model.setPriority(model.getPriority() + 1);
-                          model.save();
+                          if (model != undefined) {
+                            console.log(model.getTitle());
+                            model.setPriority(model.getPriority() + 1);
+                            model.save();
+                          }
                         }
                       } else {
                         for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
                          var model = collection.findWhere({priority: i, status: 1});
-                         model.setPriority(model.getPriority() - 1);
-                         model.save();
+                         if (model != undefined) {
+                          model.setPriority(model.getPriority() - 1);
+                          model.save();
+                        }
                         }
                       }
 
@@ -114,15 +122,19 @@ define([
                       if (start_priority > ui.item.index()) {
                         for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
                           var model = collection.findWhere({priority: i, status: 2});
-                          console.log(model.getTitle());
-                          model.setPriority(model.getPriority() + 1);
-                          model.save();
+                          if (model != undefined) {
+                            console.log(model.getTitle());
+                            model.setPriority(model.getPriority() + 1);
+                            model.save();
+                          }
                         }
                       } else {
                         for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
                          var model = collection.findWhere({priority: i, status: 2});
-                         model.setPriority(model.getPriority() - 1);
-                         model.save();
+                         if (model != undefined) {
+                          model.setPriority(model.getPriority() - 1);
+                          model.save();
+                         }
                         }
                       }
 
