@@ -27,7 +27,7 @@ define([
                     $("#tasks-list-todo").append(view.render().el);	
                   });
 
-                  $( "#tasks-list-todo, #tasks-list-done" ).sortable({
+                  $( "#tasks-list-todo" ).sortable({
                     placeholder: "ui-state-highlight",
                     connectWith: ".connectedSortable",
 		                update: function(event, ui) {
@@ -52,6 +52,7 @@ define([
                       }
 
                       var model = collection.get(ui.item.data('id'));
+                      model.setStatus(0);
                       model.setPriority(ui.item.index());
                       model.save();
                       console.log('update: '+ui.item.index())
@@ -62,10 +63,22 @@ define([
                   placeholder: "ui-state-highlight",
                   connectWith: ".connectedSortable",
                   update: function(event, ui) {
-                    console.log('Index '.ui.item.index());
-                    console.log('Sender '.ui.sender);
+                    var model = collection.get(ui.item.data('id'));
+                    model.setStatus(1);
+                    model.save();
                   },
-                }).disableSelection();;
+                }).disableSelection();
+
+
+                $("#tasks-list-done").sortable({
+                  placeholder: "ui-state-highlight",
+                  connectWith: ".connectedSortable",
+                  update: function(event, ui) {
+                    var model = collection.get(ui.item.data('id'));
+                    model.setStatus(2);
+                    model.save();
+                  },
+                }).disableSelection();
               } 
             });
         },

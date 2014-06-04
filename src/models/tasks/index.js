@@ -9,6 +9,7 @@ define([
             title: "Nouvelle tache",
             description: "Ce que j'ai a faire",
             username: "Anonymous",
+            status: 0,
         },
 
         initialize: function Doc() {
@@ -47,6 +48,14 @@ define([
 
         setPriority: function(value) {
             this.set({priority: value}, {validate: true});
+        },
+
+        getStatus: function() {
+            return this.get('status');
+        },
+
+        setStatus: function(value) {
+            this.set({status: value}, {validate: true});
         },
 
         getUsername: function() {
