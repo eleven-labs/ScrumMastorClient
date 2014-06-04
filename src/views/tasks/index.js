@@ -48,14 +48,14 @@ define([
 
                       if (start_priority > ui.item.index()) {
                         for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
-                          var model = collection.findWhere({priority: i});
+                          var model = collection.findWhere({priority: i, status: 0});
 			                    console.log(model.getTitle());
                           model.setPriority(model.getPriority() + 1);
                           model.save();
                         }
                       } else {
                         for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
-                         var model = collection.findWhere({priority: i});
+                         var model = collection.findWhere({priority: i, status: 0});
                          model.setPriority(model.getPriority() - 1);
                          model.save();
                         }
@@ -74,8 +74,30 @@ define([
                   connectWith: ".connectedSortable",
                   update: function(event, ui) {
                     var model = collection.get(ui.item.data('id'));
-                    model.setStatus(1);
-                    model.save();
+                      var start_priority = model.getPriority();
+                      console.log(start_priority);
+                      console.log(ui.item.index());
+
+                      if (start_priority > ui.item.index()) {
+                        for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
+                          var model = collection.findWhere({priority: i, status: 1});
+                          console.log(model.getTitle());
+                          model.setPriority(model.getPriority() + 1);
+                          model.save();
+                        }
+                      } else {
+                        for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
+                         var model = collection.findWhere({priority: i, status: 1});
+                         model.setPriority(model.getPriority() - 1);
+                         model.save();
+                        }
+                      }
+
+                      var model = collection.get(ui.item.data('id'));
+                      model.setStatus(1);
+                      model.setPriority(ui.item.index());
+                      model.save();
+                      console.log('update: '+ui.item.index())
                   },
                 }).disableSelection();
 
@@ -85,8 +107,30 @@ define([
                   connectWith: ".connectedSortable",
                   update: function(event, ui) {
                     var model = collection.get(ui.item.data('id'));
-                    model.setStatus(2);
-                    model.save();
+                      var start_priority = model.getPriority();
+                      console.log(start_priority);
+                      console.log(ui.item.index());
+
+                      if (start_priority > ui.item.index()) {
+                        for (var i = start_priority - 1; i >=  ui.item.index(); i--) {
+                          var model = collection.findWhere({priority: i, status: 2});
+                          console.log(model.getTitle());
+                          model.setPriority(model.getPriority() + 1);
+                          model.save();
+                        }
+                      } else {
+                        for (var i = start_priority + 1; i <=  ui.item.index(); i++) {
+                         var model = collection.findWhere({priority: i, status: 2});
+                         model.setPriority(model.getPriority() - 1);
+                         model.save();
+                        }
+                      }
+
+                      var model = collection.get(ui.item.data('id'));
+                      model.setStatus(2);
+                      model.setPriority(ui.item.index());
+                      model.save();
+                      console.log('update: '+ui.item.index())
                   },
                 }).disableSelection();
               } 
