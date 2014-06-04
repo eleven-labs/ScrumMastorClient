@@ -27,7 +27,7 @@ define([
                     $("#tasks-list-todo").append(view.render().el);	
                   });
 
-                  $( "#tasks-list-todo, #tasks-list-current, #tasks-list-done" ).sortable({
+                  $( "#tasks-list-todo, #tasks-list-done" ).sortable({
                     placeholder: "ui-state-highlight",
                     connectWith: ".connectedSortable",
 		                update: function(event, ui) {
@@ -57,6 +57,15 @@ define([
                       console.log('update: '+ui.item.index())
                     },
                   }).disableSelection();
+
+                $("#tasks-list-current").sortable({
+                  placeholder: "ui-state-highlight",
+                  connectWith: ".connectedSortable",
+                  update: function(event, ui) {
+                    console.log('Index '.ui.item.index());
+                    console.log('Sender '.ui.sender);
+                  },
+                }).disableSelection();;
               } 
             });
         },
