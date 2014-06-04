@@ -20,6 +20,7 @@ define([
               reset: true , 
               success: function(collection, response, option) {
                   console.log(collection);
+		  collection.sort();
                   collection.each(function(model, index){
                     var view = new TaskView({model : model});
                     
